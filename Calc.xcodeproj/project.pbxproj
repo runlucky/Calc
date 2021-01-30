@@ -12,6 +12,7 @@
 		198BC4C325BEE6860000C441 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 198BC4C225BEE6860000C441 /* Assets.xcassets */; };
 		198BC4C625BEE6860000C441 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 198BC4C525BEE6860000C441 /* Preview Assets.xcassets */; };
 		198BC4C925BEE6860000C441 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 198BC4C725BEE6860000C441 /* Main.storyboard */; };
+		19BA39CA25C582110047664A /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BA39C925C582110047664A /* ViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		198BC4C825BEE6860000C441 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		198BC4CA25BEE6860000C441 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		198BC4CB25BEE6860000C441 /* Calc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Calc.entitlements; sourceTree = "<group>"; };
+		19BA39C925C582110047664A /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				198BC4CA25BEE6860000C441 /* Info.plist */,
 				198BC4CB25BEE6860000C441 /* Calc.entitlements */,
 				198BC4C425BEE6860000C441 /* Preview Content */,
+				19BA39C925C582110047664A /* ViewExtensions.swift */,
 			);
 			path = Calc;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				198BC4C125BEE6850000C441 /* ContentView.swift in Sources */,
+				19BA39CA25C582110047664A /* ViewExtensions.swift in Sources */,
 				198BC4BF25BEE6850000C441 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,7 +299,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = kakeru.Calc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -319,7 +323,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = kakeru.Calc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
