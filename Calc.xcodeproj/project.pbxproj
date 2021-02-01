@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1937AD9425C78DC400C54609 /* keyevent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937AD9325C78DC400C54609 /* keyevent.swift */; };
+		1978CEFE25C7BA9400D47005 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1978CEFD25C7BA9400D47005 /* Icon.swift */; };
 		198BC4BF25BEE6850000C441 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198BC4BE25BEE6850000C441 /* AppDelegate.swift */; };
 		198BC4C125BEE6850000C441 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198BC4C025BEE6850000C441 /* ContentView.swift */; };
 		198BC4C325BEE6860000C441 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 198BC4C225BEE6860000C441 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		1937AD9325C78DC400C54609 /* keyevent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyevent.swift; sourceTree = "<group>"; };
+		1978CEFD25C7BA9400D47005 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		198BC4BB25BEE6850000C441 /* Calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		198BC4BE25BEE6850000C441 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		198BC4C025BEE6850000C441 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			children = (
 				198BC4C025BEE6850000C441 /* ContentView.swift */,
 				19BA39CD25C66C2B0047664A /* Key.swift */,
+				1978CEFD25C7BA9400D47005 /* Icon.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 			files = (
 				1937AD9425C78DC400C54609 /* keyevent.swift in Sources */,
 				198BC4C125BEE6850000C441 /* ContentView.swift in Sources */,
+				1978CEFE25C7BA9400D47005 /* Icon.swift in Sources */,
 				19BA39D125C66C510047664A /* ColorExtensions.swift in Sources */,
 				19BA39CE25C66C2B0047664A /* Key.swift in Sources */,
 				19BA39CA25C582110047664A /* ViewExtensions.swift in Sources */,

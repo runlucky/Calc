@@ -8,22 +8,27 @@
 import SwiftUI
 
 struct KeyEvent: NSViewRepresentable {
-    internal let onKeyDown: () -> Void
+    internal let onKeyDown: (String) -> Void
     
     class KeyView: NSView {
+        fileprivate var onKeyDown: ((String) -> Void)?
+
         override var acceptsFirstResponder: Bool { true }
         override func keyDown(with event: NSEvent) {
-//            super.keyDown(with: event)
-            print(">> key \(event.charactersIgnoringModifiers ?? "")")
+            if let characters = event.characters {
+                onKeyDown?(characters)
+                print("[\(event.keyCode):\(characters), \(String(describing: characters))]")
+            }
         }
     }
 
     func makeNSView(context: Context) -> NSView {
-      let view = KeyView()
-      DispatchQueue.main.async {
-        view.window?.makeFirstResponder(view)
-      }
-      return view
+        let view = KeyView()
+        view.onKeyDown = onKeyDown
+        DispatchQueue.main.async {
+            view.window?.makeFirstResponder(view)
+        }
+        return view
     }
     
     func updateNSView(_ nsView: NSView, context: Context) {}

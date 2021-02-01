@@ -11,6 +11,8 @@ struct ContentView: View {
     @State private var formula = "0"
     @State private var estimate = ""
     
+    let onClosed: () -> Void
+    
     var body: some View {
         VStack(spacing: -1) {
             HStack {
@@ -18,7 +20,7 @@ struct ContentView: View {
                     Image(systemName: "circle.fill")
                         .foregroundColor(Color(255, 95, 88))
                     Image(systemName: "circle")
-                        .foregroundColor(Color(255, 65, 58))
+                        .foregroundColor(Color(223, 66, 62))
                 }
                 .onTapGesture {
                     NSApplication.shared.terminate(self)
@@ -67,7 +69,16 @@ struct ContentView: View {
 
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(KeyEvent())
+        .background(KeyEvent { char in
+            switch char {
+            case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "+", "-", "*", "/"  : formula += char
+            case "=", "\r" : formula = calc(formula: formula)
+            case "\u{7f}" : formula = ""
+            case "\u{1b}" : onClosed()
+            default: break
+            }
+            
+        })
     }
     
     private func calc(formula: String) -> String {
@@ -81,7 +92,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView() {}
             .previewLayout(.fixed(width: 200, height: 300))
     }
 }

@@ -23,7 +23,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         popover.contentSize = NSSize(width: 200, height: 300)
         popover.behavior = .transient
-        popover.contentViewController = NSHostingController(rootView: ContentView())
+        popover.contentViewController = NSHostingController(rootView: ContentView() {
+            self.popover.performClose(nil)
+        })
     }
 
     @objc private func onButtonClicked(_ sender: NSStatusBarButton) {
