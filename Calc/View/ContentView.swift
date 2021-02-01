@@ -8,7 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var formula = "0"
+    @State private var formula = "0" {
+        didSet {
+            switch formula {
+            case "00" : formula = "0"
+            case "01" : formula = "1"
+            case "02" : formula = "2"
+            case "03" : formula = "3"
+            case "04" : formula = "4"
+            case "05" : formula = "5"
+            case "06" : formula = "6"
+            case "07" : formula = "7"
+            case "08" : formula = "8"
+            case "09" : formula = "9"
+            default: break
+            }
+        }
+    }
     @State private var estimate = ""
     
     let onClosed: () -> Void
@@ -72,8 +88,8 @@ struct ContentView: View {
         .background(KeyEvent { char in
             switch char {
             case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "+", "-", "*", "/"  : formula += char
-            case "=", "\r" : formula = calc(formula: formula)
-            case "\u{7f}" : formula = ""
+            case "=", "\r", "\u{3}" : formula = calc(formula: formula)
+            case "\u{7f}" : formula = "0"
             case "\u{1b}" : onClosed()
             default: break
             }
