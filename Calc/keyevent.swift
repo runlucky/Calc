@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct KeyEvent: NSViewRepresentable {
+    internal let onKeyDown: () -> Void
+    
     class KeyView: NSView {
         override var acceptsFirstResponder: Bool { true }
         override func keyDown(with event: NSEvent) {
