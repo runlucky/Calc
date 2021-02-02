@@ -24,9 +24,8 @@ struct ContentView: View {
             case "09" : formula = "9"
             default: break
             }
-            if formula.isExpression {
-                estimate = "= " + formula.evaluate()
-            }
+            
+            estimate = "= " + formula.evaluate()
         }
     }
     @State private var estimate = "" {
@@ -45,6 +44,9 @@ struct ContentView: View {
                     .font(.body)
                     .foregroundColor(Color(160, 160, 160))
                     .frame(width: 160, height: 20, alignment: .trailing)
+                    .scaledToFill()
+                    .minimumScaleFactor(0.5)
+                    .lineLimit(1)
 
             }
             .background(Color(100, 100, 100))
@@ -54,10 +56,15 @@ struct ContentView: View {
                     .font(.title)
                     .foregroundColor(.white)
                     .frame(width: 130, height: 40, alignment: .trailing)
+                    .scaledToFill()
+                    .minimumScaleFactor(0.5)
+                
                 Text(estimate)
                     .font(.title2)
                     .foregroundColor(Color(160, 160, 160))
                     .frame(width: 67, height: 40, alignment: .trailing)
+                    .scaledToFill()
+                    .minimumScaleFactor(0.5)
 
             }
             .background(Color(100, 100, 100))

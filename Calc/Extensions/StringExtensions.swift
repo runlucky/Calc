@@ -12,7 +12,7 @@ extension String {
         guard let result = try? Expression(self).evaluate() else { return "Error" }
         
         if result.isInt() {
-            return Int(result).description
+            return Int(exactly: result)?.description ?? "NaN"
         }
         return result.description
     }
