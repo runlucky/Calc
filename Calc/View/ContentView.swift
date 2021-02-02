@@ -24,7 +24,9 @@ struct ContentView: View {
             case "09" : formula = "9"
             default: break
             }
-            estimate = "= " + formula.evaluate()
+            if formula.isExpression {
+                estimate = "= " + formula.evaluate()
+            }
         }
     }
     @State private var estimate = "" {
@@ -90,7 +92,10 @@ struct ContentView: View {
             HStack(spacing: -1) {
                 Key("0") { formula += "0" }
                 Key(".") { formula += "." }
-                Key(systemName: "equal") { formula = formula.evaluate() }
+                Key(systemName: "equal") {
+                    preview = formula + estimate
+                    formula = formula.evaluate()
+                }
                 Key(systemName: "plus") { formula += "+" }
             }
 
@@ -102,7 +107,7 @@ struct ContentView: View {
             case "=", "\r", "\u{3}" :
                 preview = formula + estimate
                 formula = formula.evaluate()
-                
+
             case "\u{7f}" : formula = String(formula.dropLast())
             case "\u{1b}" : formula = "0"
             default: break

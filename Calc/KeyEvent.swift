@@ -17,7 +17,6 @@ struct KeyEvent: NSViewRepresentable {
         override func keyDown(with event: NSEvent) {
             if let characters = event.characters {
                 onKeyDown?(characters)
-//                print("[\(event.keyCode):\(characters), \(String(describing: characters))]")
             }
         }
     }

@@ -8,7 +8,7 @@
 import Foundation
 
 extension String {
-    internal func evaluate() ->String {
+    internal func evaluate() -> String {
         guard let result = try? Expression(self).evaluate() else { return "Error" }
         
         if result.isInt() {
@@ -16,11 +16,8 @@ extension String {
         }
         return result.description
     }
-}
-
-
-extension Double {
-    internal func isInt() -> Bool {
-        abs(self.truncatingRemainder(dividingBy: 1)).isLess(than: .ulpOfOne)
+    
+    internal var isExpression: Bool {
+        (try? Expression(self).evaluate()) != nil
     }
 }
