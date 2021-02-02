@@ -27,7 +27,7 @@ struct Key: View {
     var body: some View {
         if isText {
             Text(value)
-                .font(.title)
+                .font(.title2)
                 .foregroundColor(.white)
                 .frame(width: 50, height: 45)
                 .background(Color(140, 140, 140))
@@ -37,7 +37,7 @@ struct Key: View {
                 }
         } else {
             Image(systemName: value)
-                .font(.title)
+                .font(.title2)
                 .foregroundColor(.white)
                 .frame(width: 50, height: 45)
                 .background(Color(254, 147, 39))

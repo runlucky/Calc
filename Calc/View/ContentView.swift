@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var formula = "0" {
+    @State private var preview: String = "1024*2=2048"
+    @State private var formula = "2048+2" {
         didSet {
             switch formula {
-            case "00" : formula = "0"
+            case "00", "" : formula = "0"
             case "01" : formula = "1"
             case "02" : formula = "2"
             case "03" : formula = "3"
@@ -25,33 +26,37 @@ struct ContentView: View {
             }
         }
     }
-    @State private var estimate = ""
-    
-    let onClosed: () -> Void
+    @State private var estimate = "= 2050"
     
     var body: some View {
         VStack(spacing: -1) {
             HStack {
-                ZStack {
-                    Image(systemName: "circle.fill")
-                        .foregroundColor(Color(255, 95, 88))
-                    Image(systemName: "circle")
-                        .foregroundColor(Color(223, 66, 62))
-                }
-                .onTapGesture {
-                    NSApplication.shared.terminate(self)
-                }
+                CloseView()
                 Spacer()
+                Text(preview)
+                    .font(.body)
+                    .foregroundColor(Color(160, 160, 160))
+                    .frame(width: 160, height: 20, alignment: .trailing)
+
             }
-            Text(formula)
-                .font(.title)
-                .foregroundColor(.white)
-                .frame(width: 200, height: 50)
-                .background(Color(100, 100, 100))
+            .background(Color(100, 100, 100))
+            
+            HStack(spacing: 0) {
+                Text(formula)
+                    .font(.title)
+                    .foregroundColor(.white)
+                    .frame(width: 130, height: 40, alignment: .trailing)
+                Text(estimate)
+                    .font(.title2)
+                    .foregroundColor(Color(160, 160, 160))
+                    .frame(width: 67, height: 40, alignment: .trailing)
+
+            }
+            .background(Color(100, 100, 100))
 
             HStack(spacing: -1) {
                 Key("AC") { formula = "0" }
-                Key(systemName: "arrow.left") {}
+                Key(systemName: "arrow.left") { formula = String(formula.dropLast()) }
                 Key("") {}
                 Key("") {}
             }
@@ -89,8 +94,8 @@ struct ContentView: View {
             switch char {
             case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "+", "-", "*", "/"  : formula += char
             case "=", "\r", "\u{3}" : formula = calc(formula: formula)
-            case "\u{7f}" : formula = "0"
-            case "\u{1b}" : onClosed()
+            case "\u{7f}" : formula = String(formula.dropLast())
+            case "\u{1b}" : formula = "0"
             default: break
             }
             
@@ -108,7 +113,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView() {}
-            .previewLayout(.fixed(width: 200, height: 300))
+        ContentView()
+            .previewLayout(.fixed(width: 197, height: 285))
     }
 }
