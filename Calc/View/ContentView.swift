@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var preview: String = "1024*2=2048"
-    @State private var formula = "2048+2" {
+    @State private var preview: String = ""
+    @State private var formula = "0" {
         didSet {
             switch formula {
             case "00", "" : formula = "0"
@@ -24,9 +24,15 @@ struct ContentView: View {
             case "09" : formula = "9"
             default: break
             }
+            estimate = "= " + formula.evaluate()
         }
     }
-    @State private var estimate = "= 2050"
+    @State private var estimate = "" {
+        didSet {
+            if estimate == "= " + formula { estimate = "" }
+            if estimate == "= Error" { estimate = oldValue }
+        }
+    }
     
     var body: some View {
         VStack(spacing: -1) {
@@ -84,7 +90,7 @@ struct ContentView: View {
             HStack(spacing: -1) {
                 Key("0") { formula += "0" }
                 Key(".") { formula += "." }
-                Key(systemName: "equal") { formula = calc(formula: formula) }
+                Key(systemName: "equal") { formula = formula.evaluate() }
                 Key(systemName: "plus") { formula += "+" }
             }
 
@@ -93,21 +99,16 @@ struct ContentView: View {
         .background(KeyEvent { char in
             switch char {
             case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "+", "-", "*", "/"  : formula += char
-            case "=", "\r", "\u{3}" : formula = calc(formula: formula)
+            case "=", "\r", "\u{3}" :
+                preview = formula + estimate
+                formula = formula.evaluate()
+                
             case "\u{7f}" : formula = String(formula.dropLast())
             case "\u{1b}" : formula = "0"
             default: break
             }
             
         })
-    }
-    
-    private func calc(formula: String) -> String {
-        if let result = NSExpression(format: formula).expressionValue(with: nil, context: nil) {
-            return String(describing: result)
-        }
-        
-        return "Error"
     }
 }
 

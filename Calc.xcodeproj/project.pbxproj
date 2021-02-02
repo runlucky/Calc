@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1937AD9425C78DC400C54609 /* KeyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937AD9325C78DC400C54609 /* KeyEvent.swift */; };
 		1937AD9C25C914B600C54609 /* CloseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937AD9B25C914B600C54609 /* CloseView.swift */; };
+		1937ADA025C91BA700C54609 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937AD9F25C91BA700C54609 /* Expression.swift */; };
+		1937ADA425C91BBF00C54609 /* AnyExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937ADA325C91BBF00C54609 /* AnyExpression.swift */; };
+		1937ADAD25C91FE500C54609 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937ADAC25C91FE500C54609 /* StringExtensions.swift */; };
 		198BC4BF25BEE6850000C441 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198BC4BE25BEE6850000C441 /* AppDelegate.swift */; };
 		198BC4C125BEE6850000C441 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198BC4C025BEE6850000C441 /* ContentView.swift */; };
 		198BC4C325BEE6860000C441 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 198BC4C225BEE6860000C441 /* Assets.xcassets */; };
@@ -22,6 +25,9 @@
 /* Begin PBXFileReference section */
 		1937AD9325C78DC400C54609 /* KeyEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyEvent.swift; sourceTree = "<group>"; };
 		1937AD9B25C914B600C54609 /* CloseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseView.swift; sourceTree = "<group>"; };
+		1937AD9F25C91BA700C54609 /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
+		1937ADA325C91BBF00C54609 /* AnyExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyExpression.swift; sourceTree = "<group>"; };
+		1937ADAC25C91FE500C54609 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		198BC4BB25BEE6850000C441 /* Calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		198BC4BE25BEE6850000C441 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		198BC4C025BEE6850000C441 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,8 +57,18 @@
 			children = (
 				19BA39D025C66C510047664A /* ColorExtensions.swift */,
 				19BA39C925C582110047664A /* ButtonExtensions.swift */,
+				1937ADAC25C91FE500C54609 /* StringExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1937AD9E25C91B8400C54609 /* Expression */ = {
+			isa = PBXGroup;
+			children = (
+				1937AD9F25C91BA700C54609 /* Expression.swift */,
+				1937ADA325C91BBF00C54609 /* AnyExpression.swift */,
+			);
+			path = Expression;
 			sourceTree = "<group>";
 		};
 		198BC4B225BEE6850000C441 = {
@@ -74,6 +90,7 @@
 		198BC4BD25BEE6850000C441 /* Calc */ = {
 			isa = PBXGroup;
 			children = (
+				1937AD9E25C91B8400C54609 /* Expression */,
 				1937AD9925C7BFD500C54609 /* Extensions */,
 				19BA39CC25C66C1C0047664A /* View */,
 				198BC4BE25BEE6850000C441 /* AppDelegate.swift */,
@@ -175,9 +192,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1937ADA425C91BBF00C54609 /* AnyExpression.swift in Sources */,
 				1937AD9425C78DC400C54609 /* KeyEvent.swift in Sources */,
+				1937ADAD25C91FE500C54609 /* StringExtensions.swift in Sources */,
 				198BC4C125BEE6850000C441 /* ContentView.swift in Sources */,
 				1937AD9C25C914B600C54609 /* CloseView.swift in Sources */,
+				1937ADA025C91BA700C54609 /* Expression.swift in Sources */,
 				19BA39D125C66C510047664A /* ColorExtensions.swift in Sources */,
 				19BA39CE25C66C2B0047664A /* Key.swift in Sources */,
 				19BA39CA25C582110047664A /* ButtonExtensions.swift in Sources */,
