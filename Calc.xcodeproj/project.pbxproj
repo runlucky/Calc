@@ -21,6 +21,7 @@
 		19BA39CA25C582110047664A /* ButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BA39C925C582110047664A /* ButtonExtensions.swift */; };
 		19BA39CE25C66C2B0047664A /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BA39CD25C66C2B0047664A /* Key.swift */; };
 		19BA39D125C66C510047664A /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BA39D025C66C510047664A /* ColorExtensions.swift */; };
+		19DD5B0B25CC383800F990FD /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DD5B0A25CC383800F990FD /* DateExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		19BA39C925C582110047664A /* ButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtensions.swift; sourceTree = "<group>"; };
 		19BA39CD25C66C2B0047664A /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		19BA39D025C66C510047664A /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		19DD5B0A25CC383800F990FD /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				19BA39C925C582110047664A /* ButtonExtensions.swift */,
 				1937ADAC25C91FE500C54609 /* StringExtensions.swift */,
 				1937ADAF25C9853500C54609 /* DoubleExtensions.swift */,
+				19DD5B0A25CC383800F990FD /* DateExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				1937ADAD25C91FE500C54609 /* StringExtensions.swift in Sources */,
 				198BC4C125BEE6850000C441 /* ContentView.swift in Sources */,
 				1937AD9C25C914B600C54609 /* CloseView.swift in Sources */,
+				19DD5B0B25CC383800F990FD /* DateExtensions.swift in Sources */,
 				1937ADA025C91BA700C54609 /* Expression.swift in Sources */,
 				19BA39D125C66C510047664A /* ColorExtensions.swift in Sources */,
 				19BA39CE25C66C2B0047664A /* Key.swift in Sources */,

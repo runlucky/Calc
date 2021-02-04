@@ -72,7 +72,12 @@ struct ContentView: View {
             HStack(spacing: -1) {
                 Key("AC") { formula = "0" }
                 Key(systemName: "arrow.left") { formula = String(formula.dropLast()) }
-                Key("") {}
+                Key("UNIX\nTIME") {
+                    if let unixtime = Double(formula) {
+                        formula = Date(timeIntervalSince1970: unixtime).toString("yyyy-MM-dd HH:mm:ss") + "(JST)"
+                    }
+                    
+                }
                 Key("") {}
             }
             HStack(spacing: -1) {
