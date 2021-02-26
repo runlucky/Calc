@@ -129,7 +129,12 @@ struct ContentView: View {
                 NSPasteboard.general.clearContents()
                 NSPasteboard.general.setString(value, forType: .string)
 
-            case "v" where modifier.contains(.command): print("paste!")
+            case "v" where modifier.contains(.command):
+                if let value = NSPasteboard.general.string(forType: .string),
+                   value.isExpression {
+                    formula = value
+                }
+                
             case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "+", "-", "*", "/"  : formula += char
             case "=", "\r", "\u{3}" :
                 preview = formula + estimate
