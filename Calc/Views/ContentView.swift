@@ -25,13 +25,13 @@ struct ContentView: View {
             default: break
             }
             
-            estimate = "= " + formula.evaluate()
+            estimate = formula.evaluate()
         }
     }
     @State private var estimate = "" {
         didSet {
-            if estimate == "= " + formula { estimate = "" }
-            if estimate == "= Error" { estimate = oldValue }
+            if estimate == formula { estimate = "" }
+            if estimate == "Error" { estimate = oldValue }
         }
     }
     
@@ -59,10 +59,16 @@ struct ContentView: View {
                     .scaledToFill()
                     .minimumScaleFactor(0.5)
                 
+                Text(estimate == "" ? "" : "=")
+                    .font(.title2)
+                    .foregroundColor(Color(160, 160, 160))
+                    .frame(width: 15, height: 40, alignment: .center)
+                    .minimumScaleFactor(0.5)
+
                 Text(estimate)
                     .font(.title2)
                     .foregroundColor(Color(160, 160, 160))
-                    .frame(width: 67, height: 40, alignment: .trailing)
+                    .frame(width: 52, height: 40, alignment: .trailing)
                     .scaledToFill()
                     .minimumScaleFactor(0.5)
 
@@ -113,8 +119,17 @@ struct ContentView: View {
 
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(KeyEvent { char in
+        .background(KeyEvent { char, modifier in
             switch char {
+            case "c" where modifier.contains(.command):
+                let value: String = {
+                    if estimate != "" { return estimate }
+                    return formula
+                }()
+                NSPasteboard.general.clearContents()
+                NSPasteboard.general.setString(value, forType: .string)
+
+            case "v" where modifier.contains(.command): print("paste!")
             case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "+", "-", "*", "/"  : formula += char
             case "=", "\r", "\u{3}" :
                 preview = formula + estimate

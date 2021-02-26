@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct KeyEvent: NSViewRepresentable {
-    internal let onKeyDown: (String) -> Void
+    internal let onKeyDown: (String, NSEvent.ModifierFlags) -> Void
     
     class KeyView: NSView {
-        fileprivate var onKeyDown: ((String) -> Void)?
+        fileprivate var onKeyDown: ((String, NSEvent.ModifierFlags) -> Void)?
 
         override var acceptsFirstResponder: Bool { true }
         override func keyDown(with event: NSEvent) {
             if let characters = event.characters {
-                onKeyDown?(characters)
+                onKeyDown?(characters, event.modifierFlags)
             }
         }
     }
