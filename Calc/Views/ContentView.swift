@@ -80,7 +80,7 @@ struct ContentView: View {
                 Key(systemName: "arrow.left") { formula = String(formula.dropLast()) }
                 Key("UNIX\nTIME") {
                     if let unixtime = Double(formula) {
-                        formula = Date(timeIntervalSince1970: unixtime).toString("yyyy-MM-dd HH:mm:ss") + "(JST)"
+                        formula = Date(timeIntervalSince1970: unixtime).toString("yyyy/MM/dd HH:mm:ss") + "(JST)"
                     }
                     
                 }
@@ -90,31 +90,31 @@ struct ContentView: View {
                 Key("7") { formula += "7" }
                 Key("8") { formula += "8" }
                 Key("9") { formula += "9" }
-                Key(systemName: "divide") { formula += "/" }
+                Key(systemName: "divide", .orange) { formula += "/" }
             }
 
             HStack(spacing: -1) {
                 Key("4") { formula += "4" }
                 Key("5") { formula += "5" }
                 Key("6") { formula += "6" }
-                Key(systemName: "multiply") { formula += "*" }
+                Key(systemName: "multiply", .orange) { formula += "*" }
             }
 
             HStack(spacing: -1) {
                 Key("1") { formula += "1" }
                 Key("2") { formula += "2" }
                 Key("3") { formula += "3" }
-                Key(systemName: "minus") { formula += "-" }
+                Key(systemName: "minus", .orange) { formula += "-" }
             }
 
             HStack(spacing: -1) {
                 Key("0") { formula += "0" }
                 Key(".") { formula += "." }
-                Key(systemName: "equal") {
+                Key(systemName: "equal", .orange) {
                     preview = formula + estimate
                     formula = formula.evaluate()
                 }
-                Key(systemName: "plus") { formula += "+" }
+                Key(systemName: "plus", .orange) { formula += "+" }
             }
 
         }
