@@ -49,8 +49,8 @@ struct ContentView: View {
                     .lineLimit(1)
 
             }
-            .background(Color(100, 100, 100))
-            
+            .background(AppColor.darkGray.value)
+
             HStack(spacing: 0) {
                 Text(formula)
                     .font(.title)
@@ -73,18 +73,18 @@ struct ContentView: View {
                     .minimumScaleFactor(0.5)
 
             }
-            .background(Color(100, 100, 100))
+            .background(AppColor.darkGray.value)
 
             HStack(spacing: -1) {
-                Key("AC") { formula = "0" }
-                Key(systemName: "arrow.left") { formula = String(formula.dropLast()) }
-                Key("UNIX\nTIME") {
+                Key("AC", .gray) { formula = "0" }
+                Key(systemName: "arrow.left", .gray) { formula = String(formula.dropLast()) }
+                Key("UNIX\nTIME", .gray) {
                     if let unixtime = Double(formula) {
                         formula = Date(timeIntervalSince1970: unixtime).toString("yyyy/MM/dd HH:mm:ss") + "(JST)"
                     }
                     
                 }
-                Key("") {}
+                Key("", .gray) {}
             }
             HStack(spacing: -1) {
                 Key("7") { formula += "7" }

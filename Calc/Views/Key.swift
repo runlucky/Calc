@@ -8,41 +8,27 @@
 import SwiftUI
 
 struct Key: View {
-    private let color: BackgroundColor
+    private let color: AppColor
     private let base: BaseView
     private let action: () -> Void
     
-    internal init(_ text: String, _ color: BackgroundColor = .gray, action: @escaping () -> Void) {
+    internal init(_ text: String, _ color: AppColor = .lightGray, action: @escaping () -> Void) {
         base = BaseView(text)
         self.color = color
         self.action = action
     }
     
-    internal init(systemName: String, _ color: BackgroundColor = .gray, action: @escaping () -> Void) {
+    internal init(systemName: String, _ color: AppColor = .lightGray, action: @escaping () -> Void) {
         base = BaseView(systemName: systemName)
         self.color = color
         self.action = action
     }
     
     var body: some View {
-        switch color {
-        case .gray:
-            base.background(Color(140, 140, 140))
-                .onTapGesture {
-                    action()
-                }
-
-        case .orange:
-            base.background(Color(254, 147, 39))
-                .onTapGesture {
-                    action()
-                }
-        }
-    }
-    
-    internal enum BackgroundColor {
-        case gray
-        case orange
+        base.background(color.value)
+            .onTapGesture {
+                action()
+            }
     }
 }
 
