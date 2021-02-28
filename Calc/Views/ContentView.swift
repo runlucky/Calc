@@ -37,8 +37,9 @@ struct ContentView: View {
     
     var body: some View {
         VStack(spacing: -1) {
-            HStack {
+            HStack(spacing: 0) {
                 CloseView()
+                    .padding(.leading, 3)
                 Spacer()
                 Text(preview)
                     .font(.body)
@@ -111,7 +112,7 @@ struct ContentView: View {
                 Key("0") { formula += "0" }
                 Key(".") { formula += "." }
                 Key(systemName: "equal", .orange) {
-                    preview = formula + estimate
+                    preview = formula + "= " + estimate
                     formula = formula.evaluate()
                 }
                 Key(systemName: "plus", .orange) { formula += "+" }
@@ -137,7 +138,7 @@ struct ContentView: View {
                 
             case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "+", "-", "*", "/"  : formula += char
             case "=", "\r", "\u{3}" :
-                preview = formula + estimate
+                preview = formula + "= " + estimate
                 formula = formula.evaluate()
 
             case "\u{7f}" : formula = String(formula.dropLast())
