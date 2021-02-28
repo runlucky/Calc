@@ -8,6 +8,8 @@
 import SwiftUI
 
 internal enum AppColor {
+    case white
+    case whiteGray
     case lightGray
     case gray
     case darkGray
@@ -15,9 +17,11 @@ internal enum AppColor {
 
     internal var value: Color {
         switch self {
-        case .lightGray: return Color(128, 128, 128)
-        case .gray     : return Color(100, 100, 100)
-        case .darkGray : return Color( 84,  84,  84)
+        case .white    : return Color(255, 255, 255)
+        case .whiteGray: return Color(160, 160, 160)
+        case .lightGray: return Color(105, 105, 105)
+        case .gray     : return Color( 76,  76,  76)
+        case .darkGray : return Color( 56,  56,  56)
         case .orange   : return Color(255, 159,  11)
         }
     }

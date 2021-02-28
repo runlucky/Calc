@@ -21,7 +21,7 @@ struct CloseView: View {
             if hovering {
                 Image(systemName: "multiply")
                     .font(.caption)
-                    .foregroundColor(Color(96, 8, 8))
+                    .foregroundColor(Color(157, 2, 3))
             }
         }
         .onHover { hovering in

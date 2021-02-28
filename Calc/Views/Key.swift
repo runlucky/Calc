@@ -51,15 +51,15 @@ private struct BaseView: View {
         if isText {
             Text(value)
                 .font(.title2)
-                .foregroundColor(.white)
+                .foregroundColor(AppColor.white.value)
                 .frame(width: 50, height: 45)
-                .border(Color(64, 64, 64), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                .border(AppColor.darkGray.value, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
         } else {
             Image(systemName: value)
                 .font(.title2)
-                .foregroundColor(.white)
+                .foregroundColor(AppColor.white.value)
                 .frame(width: 50, height: 45)
-                .border(Color(64, 64, 64), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                .border(AppColor.darkGray.value, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
         }
     }
     
