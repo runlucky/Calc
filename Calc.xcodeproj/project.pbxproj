@@ -63,7 +63,6 @@
 			children = (
 				19BA39D025C66C510047664A /* ColorExtensions.swift */,
 				19BA39C925C582110047664A /* ButtonExtensions.swift */,
-				1937ADAC25C91FE500C54609 /* StringExtensions.swift */,
 				1937ADAF25C9853500C54609 /* DoubleExtensions.swift */,
 				19DD5B0A25CC383800F990FD /* DateExtensions.swift */,
 			);
@@ -73,6 +72,7 @@
 		1937AD9E25C91B8400C54609 /* Expression */ = {
 			isa = PBXGroup;
 			children = (
+				1937ADAC25C91FE500C54609 /* StringExtensions.swift */,
 				1937AD9F25C91BA700C54609 /* Expression.swift */,
 				1937ADA325C91BBF00C54609 /* AnyExpression.swift */,
 			);
