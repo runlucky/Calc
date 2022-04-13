@@ -22,6 +22,7 @@ struct ContentView: View {
             case "07" : formula = "7"
             case "08" : formula = "8"
             case "09" : formula = "9"
+            case "0(" : formula = "("
             default: break
             }
             
@@ -111,7 +112,7 @@ struct ContentView: View {
             HStack(spacing: -1) {
                 Key("0") { formula += "0" }
                 Key(".") { formula += "." }
-                Key(systemName: "equal", .orange) {
+                Key(systemName: "equal") {
                     preview = formula + "= " + estimate
                     formula = formula.evaluate()
                 }
@@ -136,7 +137,7 @@ struct ContentView: View {
                     formula = value
                 }
                 
-            case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "+", "-", "*", "/"  : formula += char
+            case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "+", "-", "*", "/", "(", ")"  : formula += char
             case "=", "\r", "\u{3}" :
                 preview = formula + "= " + estimate
                 formula = formula.evaluate()
